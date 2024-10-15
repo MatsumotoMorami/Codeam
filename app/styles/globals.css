@@ -8,10 +8,26 @@
 }
 
 .bg {
-    background-color: #EFF4FF;
+    background-image: linear-gradient(45deg, #d0e6f9 25%, #EFF4FF 25%, #EFF4FF 50%, #d0e6f9 50%, #d0e6f9 75%, #EFF4FF 75%, #EFF4FF 100%);
+    background-size: 20px 20px;
 }
 
 .fc-codeam {
     background: rgb(0, 0, 0);
-    background: linear-gradient(45deg, rgba(0, 0, 0, 1) 0%, rgba(75, 148, 167, 1) 100%);
+    background: linear-gradient(-135deg, rgba(0, 0, 0, 1) 0%, rgba(75, 148, 167, 1) 100%);
+}
+
+.fc-signup {
+    background-color: #EFF4FF;
+    border: #E38A59;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.fc-signin {
+    background-color: #EFF4FF;
+    border: #E38A59;
+    border-style: solid;
+    border-width: 2px;
+    line-height: 3.5vw;
 }
