@@ -3,7 +3,7 @@ import Header from "./header";
 
 export function Background() {
     return (
-        <div className="fixed w-[100vw] h-[100vh] bg"></div>
+        <div className="fixed w-[100vw] h-[100vh] bg-[#EFF4FF]"></div>
     )
 }
 
