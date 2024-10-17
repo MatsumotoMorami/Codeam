@@ -6,13 +6,13 @@ import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 
-export default function BasicTimeline() {
+export default function HistoryTimeline() {
     return (
         <div className='text-[var(--blue)]'>
             <Timeline>
                 <TimelineItem>
                     <TimelineSeparator>
-                        <TimelineDot />
+                        <TimelineDot color='secondary' />
                         <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent>Eat</TimelineContent>

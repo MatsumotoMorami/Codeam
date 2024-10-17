@@ -1,4 +1,4 @@
-import BasicTimeline from "./history-timeline"
+import HistoryTimeline from "./history-timeline"
 
 export default function DashboardComponentSet() {
     return (
@@ -20,7 +20,7 @@ export function History() {
     return (
         <div className="w-full h-full p-[2vw] flex flex-row">
             <div className="text-[var(--blue)] text-3xl mr-[4vw] w-[10vw]  text-center">History</div>
-            <div className="absolute left-[10vw] h-[calc(28vh-4vw)] w-[3px]"><BasicTimeline></BasicTimeline></div>
+            <div className="absolute left-[10vw] h-[calc(28vh-4vw)] w-[3px]"><HistoryTimeline></HistoryTimeline></div>
         </div>
     )
 }
