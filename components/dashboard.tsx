@@ -1,4 +1,6 @@
+import { Timeline, TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineOppositeContent, TimelineSeparator } from "@mui/lab"
 import HistoryTimeline from "./history-timeline"
+import { Typography } from "@mui/material"
 
 export default function DashboardComponentSet() {
     return (
@@ -18,10 +20,32 @@ export default function DashboardComponentSet() {
 
 export function History() {
     return (
-        <div className="w-full h-full p-[2vw] flex flex-row">
-            <div className="text-[var(--blue)] text-3xl mr-[4vw] w-[10vw]  text-center">History</div>
-            {/* <div className="absolute left-[10vw] h-[calc(28vh-4vw)] w-[3px]"><HistoryTimeline></HistoryTimeline></div> */}
-            <HistoryTimeline></HistoryTimeline>
-        </div>
-    )
+        <Timeline sx={{
+            '& .MuiTimelineItem-root:before': {
+                flex: 0,
+                padding: 0,
+            },
+        }}>
+            <TimelineItem>
+                <TimelineSeparator>
+                    <TimelineDot />
+                    <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent>Eat</TimelineContent>
+            </TimelineItem>
+            <TimelineItem>
+                <TimelineSeparator>
+                    <TimelineDot />
+                    <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent>Code</TimelineContent>
+            </TimelineItem>
+            <TimelineItem>
+                <TimelineSeparator>
+                    <TimelineDot />
+                </TimelineSeparator>
+                <TimelineContent>Sleep</TimelineContent>
+            </TimelineItem>
+        </Timeline>
+    );
 }
