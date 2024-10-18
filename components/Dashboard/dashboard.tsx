@@ -8,6 +8,7 @@ import TopNavBar from '../topNavBar';
 import { useState } from 'react';
 import { Container, Header, Navbar, Nav, Content, Footer, Breadcrumb, Sidebar } from 'rsuite';
 import { getHeight } from 'rsuite/esm/DOMHelper';
+import { Outlet } from 'react-router-dom';
 
 export function HistoryTimeline(props) {
     const HistoryData: HistoryDataType[] = [
@@ -49,26 +50,27 @@ export function HistoryTimeline(props) {
 }
 
 
-export default function DashboardComponentSet() {
+export default function Frame() {
     const [activeKey, setActiveKey] = useState('1');
     const [active, setActive] = useState('home')
     const [expand, setExpand] = useState(true);
     const [windowHeight, setWindowHeight] = useState(getHeight(window));
-    const navBodyStyle: React.CSSProperties = expand
-        ? { height: window.innerHeight - 112, overflow: 'auto' }
-        : {};
+    const navBodyStyle: React.CSSProperties = { height: window.innerHeight - 50, overflow: 'auto' }
     return (
-        <Container className='frame'>
-            <Header>
-                <TopNavBar active={active} setActive={setActive} />
-            </Header>
+        <Container className='parentContainer'>
+            <Sidebar
+                style={{ display: 'flex', flexDirection: 'column' }}
+                width={expand ? 260 : 56}
+                collapsible>
+                <SideNavBar nbs={navBodyStyle} expanded={expand} setExpand={setExpand} />
+            </Sidebar>
             <Container>
-                <Sidebar
-                    style={{ display: 'flex', flexDirection: 'column' }}
-                    width={expand ? 260 : 56}
-                    collapsible>
-                    <SideNavBar nbs={navBodyStyle} expanded={expand} setExpand={setExpand} />
-                </Sidebar>
+                <Header>
+                    <TopNavBar active={active} setActive={setActive} />
+                </Header>
+                <Content>
+                    <Outlet />
+                </Content>
             </Container>
         </Container>
     )

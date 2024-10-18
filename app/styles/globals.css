@@ -3,16 +3,17 @@
 @tailwind utilities;
 
 :root {
-    --rs-primary-50: #f0fbff;
-    --rs-primary-100: #bfe3f2;
-    --rs-primary-200: #93cbe6;
-    --rs-primary-300: #6bb6db;
-    --rs-primary-400: #469fcf;
-    --rs-primary-500: #2588c2;
-    --rs-primary-600: #1a7dba;
-    --rs-primary-700: #0f6dab;
-    --rs-primary-800: #065994;
-    --rs-primary-900: #004275;
+    --rs-primary-50: #f0ffff;
+    --rs-primary-100: #bff1f2;
+    --rs-primary-200: #93e1e6;
+    --rs-primary-300: #6bd4db;
+    --rs-primary-400: #46c3cf;
+    --rs-primary-500: #25b2c2;
+    --rs-primary-600: #1aa7ba;
+    --rs-primary-700: #0f96ab;
+    --rs-primary-800: #067f94;
+    --rs-primary-900: #006275;
+    --rs-secondary-color: #E38A59;
 }
 
 body {
@@ -20,8 +21,11 @@ body {
 }
 
 .Header {
-    background-color: white;
-    box-shadow: 0px 2px 2px rgba(193, 195, 196, 0.463);
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    cursor: pointer;
+    z-index: 1;
 }
 
 
@@ -50,15 +54,17 @@ body {
     text-align: center;
 }
 
-.rs-sidebar {
-    position: fixed;
-    height: 100vh;
-    top: 5vh;
-    z-index: 3;
-}
-
 .rs-header {
     position: fixed;
     width: 100vw;
+
+}
+
+
+
+.rs-sidebar {
+    position: fixed;
+    height: 100vh;
     z-index: 3;
+
 }

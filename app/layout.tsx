@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "@styles/globals.css"
 import 'rsuite/dist/rsuite-no-reset.min.css';
 import { CustomProvider } from 'rsuite';
-//rsuite-no-reset.min.css 是一个不包含 reset 样式的版本，如果您需要使用 reset 样式，可以使用 rsuite.min.css。
 
 export const metadata: Metadata = {
     title: "Create Next App",

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@styles/globals.css"
 import { ReactNode } from "react";
+import { CustomProvider } from 'rsuite';
 
 // export const metadata: Metadata = {
 //     title: "Create Next App",
