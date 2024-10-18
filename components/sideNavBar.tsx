@@ -1,14 +1,18 @@
-import { Sidenav, Nav } from 'rsuite';
+import { Sidenav, Nav, Container, Sidebar } from 'rsuite';
 import DashboardIcon from '@rsuite/icons/legacy/Dashboard';
 import GroupIcon from '@rsuite/icons/legacy/Group';
 import MagicIcon from '@rsuite/icons/legacy/Magic';
 import GearCircleIcon from '@rsuite/icons/legacy/GearCircle';
 
-export default function SideNavBar() {
+export default function SideNavBar({ onExpand, expand }) {
     return (
-        <div style={{ width: 240 }}>
-            <Sidenav defaultOpenKeys={['3', '4']}>
-                <Sidenav.Body>
+        <Sidebar style={{ display: 'flex', flexDirection: 'column' }}
+            width={expand ? 260 : 56}
+            collapsible>
+            <Sidenav defaultOpenKeys={['3', '4']} expanded={expand}>
+                <Sidenav.Body style={expand
+                    ? { height: window.innerHeight * 0.90, overflow: 'auto' }
+                    : {}}>
                     <Nav activeKey="1">
                         <Nav.Item eventKey="1" icon={<DashboardIcon />}>
                             Dashboard
@@ -33,7 +37,8 @@ export default function SideNavBar() {
                         </Nav.Menu>
                     </Nav>
                 </Sidenav.Body>
+                <Sidenav.Toggle onToggle={onExpand} />
             </Sidenav>
-        </div>
+        </Sidebar>
     )
 }

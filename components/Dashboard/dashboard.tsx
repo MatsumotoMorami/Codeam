@@ -2,9 +2,10 @@
 
 import Timeline from 'rsuite/Timeline';
 import TimelineItem from 'rsuite/TimelineItem';
-import SideNavBar from './sideNavBar';
-import TopNavBar from './topNavBar';
+import SideNavBar from '../sideNavBar';
+import TopNavBar from '../topNavBar';
 import { useState } from 'react';
+import { Container, Header, Navbar, Nav, Content, Footer, Breadcrumb, Sidebar } from 'rsuite';
 
 export function HistoryTimeline(props) {
     const HistoryData: HistoryDataType[] = [
@@ -47,17 +48,22 @@ export function HistoryTimeline(props) {
 
 
 export default function DashboardComponentSet() {
-    let [active, setActive] = useState("home");
+    const [expanded, setExpanded] = useState(true);
+    const [activeKey, setActiveKey] = useState('1');
+    const [active, setActive] = useState('home')
     return (
-        <div>
-            <TopNavBar appearance="subtle" active={active} setActive={setActive} />
-            <SideNavBar></SideNavBar>
-            <div className="fixed top-[12vh] left-[18vw] h-[84vh] w-[79vw]">
-                <div className="w-[12vw] text-4xl text-white bg-[var(--black)] h-[7vh] mb-[4vh] db-HOME">HOME</div>
-                <div className="w-full h-[28vh] mb-[3vh] bg-[var(--aoi)]"><HistoryTimeline isItemActive={Timeline.ACTIVE_FIRST} /></div>
+        <Container>
+            <TopNavBar active={active} setActive={setActive}></TopNavBar>
+            <Container>
+                <SideNavBar onExpand={setExpanded} expand={expanded} />
+                <Container className='m-[1vw]'>{/* content is here */}
+                    <Container className='h-[30vh] bg-black'>
 
-            </div>
-        </div>
+                    </Container>
+                    <Container></Container>
+                </Container>
+            </Container>
+        </Container>
     )
 }
 
