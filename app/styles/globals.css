@@ -49,3 +49,16 @@ body {
     line-height: 7vh;
     text-align: center;
 }
+
+.rs-sidebar {
+    position: fixed;
+    height: 100vh;
+    top: 5vh;
+    z-index: 3;
+}
+
+.rs-header {
+    position: fixed;
+    width: 100vw;
+    z-index: 3;
+}

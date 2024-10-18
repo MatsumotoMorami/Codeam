@@ -1,11 +1,13 @@
 "use client";
 
 import Timeline from 'rsuite/Timeline';
+import classNames from 'classnames';
 import TimelineItem from 'rsuite/TimelineItem';
-import SideNavBar from '../sideNavBar';
+import SideNavBar, { expand } from '../sideNavBar';
 import TopNavBar from '../topNavBar';
 import { useState } from 'react';
 import { Container, Header, Navbar, Nav, Content, Footer, Breadcrumb, Sidebar } from 'rsuite';
+import { getHeight } from 'rsuite/esm/DOMHelper';
 
 export function HistoryTimeline(props) {
     const HistoryData: HistoryDataType[] = [
@@ -48,20 +50,25 @@ export function HistoryTimeline(props) {
 
 
 export default function DashboardComponentSet() {
-    const [expanded, setExpanded] = useState(true);
     const [activeKey, setActiveKey] = useState('1');
     const [active, setActive] = useState('home')
+    const [expand, setExpand] = useState(true);
+    const [windowHeight, setWindowHeight] = useState(getHeight(window));
+    const navBodyStyle: React.CSSProperties = expand
+        ? { height: window.innerHeight - 112, overflow: 'auto' }
+        : {};
     return (
-        <Container>
-            <TopNavBar active={active} setActive={setActive}></TopNavBar>
+        <Container className='frame'>
+            <Header>
+                <TopNavBar active={active} setActive={setActive} />
+            </Header>
             <Container>
-                <SideNavBar onExpand={setExpanded} expand={expanded} />
-                <Container className='m-[1vw]'>{/* content is here */}
-                    <Container className='h-[30vh] bg-black'>
-
-                    </Container>
-                    <Container></Container>
-                </Container>
+                <Sidebar
+                    style={{ display: 'flex', flexDirection: 'column' }}
+                    width={expand ? 260 : 56}
+                    collapsible>
+                    <SideNavBar nbs={navBodyStyle} expanded={expand} setExpand={setExpand} />
+                </Sidebar>
             </Container>
         </Container>
     )

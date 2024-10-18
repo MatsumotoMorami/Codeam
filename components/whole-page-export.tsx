@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import "@styles/custom-theme.less"
 
 export function Background() {
     return (
