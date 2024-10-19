@@ -1,10 +1,16 @@
-import DashboardComponentSet from "@/components/Dashboard/dashboard";
-import Page from "@/components/whole-page-export";
+import Frame from "@/components/frame";
+import DashboardComponentSet from "./dashboard";
+import "@styles/globals.css"
+
 
 export default function App() {
     return (
-        <Page>
-            <DashboardComponentSet></DashboardComponentSet>
-        </Page>
+        <>
+            <Frame>
+                <DashboardComponentSet></DashboardComponentSet>
+            </Frame>
+
+        </>
+
     )
 }

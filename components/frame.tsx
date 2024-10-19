@@ -3,10 +3,10 @@
 import Timeline from 'rsuite/Timeline';
 import classNames from 'classnames';
 import TimelineItem from 'rsuite/TimelineItem';
-import SideNavBar, { expand } from '../sideNavBar';
-import TopNavBar from '../topNavBar';
-import { useState } from 'react';
-import { Container, Header, Navbar, Nav, Content, Footer, Breadcrumb, Sidebar } from 'rsuite';
+import SideNavBar, { expand } from './sideNavBar';
+import TopNavBar from './topNavBar';
+import { useEffect, useState } from 'react';
+import { Container, Header, Content, Footer, Breadcrumb, Sidebar } from 'rsuite';
 import { getHeight } from 'rsuite/esm/DOMHelper';
 import { Outlet } from 'react-router-dom';
 
@@ -50,14 +50,28 @@ export function HistoryTimeline(props) {
 }
 
 
-export default function Frame() {
+
+export default function Frame({ children }) {
     const [activeKey, setActiveKey] = useState('1');
-    const [active, setActive] = useState('home')
+    const [active, setActive] = useState('home');
     const [expand, setExpand] = useState(true);
-    const [windowHeight, setWindowHeight] = useState(getHeight(window));
-    const navBodyStyle: React.CSSProperties = { height: window.innerHeight - 50, overflow: 'auto' }
+    const [windowHeight, setWindowHeight] = useState(0);
+    const [navBodyStyle, setNavBodyStyle] = useState({ height: 0, overflow: 'auto' });
+
+    useEffect(() => {
+        const handleResize = () => {
+            const newHeight = window.innerHeight - 60; // 计算新的高度
+            setWindowHeight(window.innerHeight);
+            setNavBodyStyle({ height: newHeight, overflow: 'auto' }); // 更新样式
+        };
+
+        window.addEventListener('resize', handleResize);
+        handleResize(); // 立即调用一次，获取初始高度
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
-        <Container className='parentContainer'>
+        <Container>
             <Sidebar
                 style={{ display: 'flex', flexDirection: 'column' }}
                 width={expand ? 260 : 56}
@@ -65,14 +79,14 @@ export default function Frame() {
                 <SideNavBar nbs={navBodyStyle} expanded={expand} setExpand={setExpand} />
             </Sidebar>
             <Container>
-                <Header>
+                <Header className='header'>
                     <TopNavBar active={active} setActive={setActive} />
                 </Header>
                 <Content>
-                    <Outlet />
+                    {children}
                 </Content>
             </Container>
+            <Footer></Footer>
         </Container>
-    )
+    );
 }
-

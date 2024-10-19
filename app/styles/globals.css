@@ -3,68 +3,28 @@
 @tailwind utilities;
 
 :root {
-    --rs-primary-50: #f0ffff;
-    --rs-primary-100: #bff1f2;
-    --rs-primary-200: #93e1e6;
-    --rs-primary-300: #6bd4db;
-    --rs-primary-400: #46c3cf;
-    --rs-primary-500: #25b2c2;
-    --rs-primary-600: #1aa7ba;
-    --rs-primary-700: #0f96ab;
-    --rs-primary-800: #067f94;
-    --rs-primary-900: #006275;
-    --rs-secondary-color: #E38A59;
+    --rs-primary-50: #f2feff;
+    --rs-primary-100: #daf1f5;
+    --rs-primary-200: #c0e4eb;
+    --rs-primary-300: #aad9e3;
+    --rs-primary-400: #93ccd9;
+    --rs-primary-500: #7ebecf;
+    --rs-primary-600: #5bb0c7;
+    --rs-primary-700: #399ab8;
+    --rs-primary-800: #1a7fa1;
+    --rs-primary-900: #016082;
+
+
 }
 
 body {
     background-color: white;
 }
 
-.Header {
+.header {
     position: absolute;
     right: 30px;
     top: 20px;
     cursor: pointer;
     z-index: 1;
-}
-
-
-.fp-codeam {
-    background: rgb(0, 0, 0);
-    background: linear-gradient(-135deg, rgba(0, 0, 0, 1) 0%, rgba(75, 148, 167, 1) 100%);
-}
-
-.fp-signup {
-    background-color: #EFF4FF;
-    border: #E38A59;
-    border-style: solid;
-    border-width: 2px;
-}
-
-.fc-signin {
-    background-color: #EFF4FF;
-    border: #E38A59;
-    border-style: solid;
-    border-width: 2px;
-    line-height: 3.5vw;
-}
-
-.db-HOME {
-    line-height: 7vh;
-    text-align: center;
-}
-
-.rs-header {
-    position: fixed;
-    width: 100vw;
-
-}
-
-
-
-.rs-sidebar {
-    position: fixed;
-    height: 100vh;
-    z-index: 3;
-
 }

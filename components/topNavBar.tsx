@@ -4,11 +4,12 @@ import Nav from 'rsuite/Nav';
 import NavItem from 'rsuite/NavItem';
 import NoticeIcon from '@rsuite/icons/Notice';
 
+
 export default function TopNavBar({ active, setActive, ...props }) {
     const [isMobile] = useMediaQuery('(max-width: 700px)');
     const trigger = useRef<WhisperInstance>(null);
     return (
-        <Stack direction={isMobile ? 'column' : 'row'} className="Header" spacing={10}>
+        <Stack direction={isMobile ? 'column' : 'row'} spacing={10} className='header'>
             <IconButton
                 icon={
                     <Badge content={1}>
