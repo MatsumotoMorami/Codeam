@@ -3,18 +3,42 @@
 @tailwind utilities;
 
 :root {
-    --rs-primary-50: #f2feff;
-    --rs-primary-100: #daf1f5;
-    --rs-primary-200: #c0e4eb;
-    --rs-primary-300: #aad9e3;
-    --rs-primary-400: #93ccd9;
-    --rs-primary-500: #7ebecf;
-    --rs-primary-600: #5bb0c7;
-    --rs-primary-700: #399ab8;
-    --rs-primary-800: #1a7fa1;
-    --rs-primary-900: #016082;
-
-
+    --green-50: #f2fff9;
+    --green-100: #d3e6dd;
+    --green-200: #b1ccc0;
+    --green-300: #92b3a5;
+    --green-400: #76998a;
+    --green-500: #5c8071;
+    --green-600: #437d67;
+    --green-700: #2b785c;
+    --green-800: #147050;
+    --green-900: #006644;
+    --red-50: #fff2f2;
+    --red-100: #e6baba;
+    --red-200: #cc8989;
+    --red-300: #b3605f;
+    --red-400: #993f3c;
+    --red-500: #802520;
+    --red-600: #7d1e18;
+    --red-700: #781810;
+    --red-800: #701208;
+    --red-900: #660d01;
+    --orange-50: #fff2ed;
+    --orange-100: #f0cfc2;
+    --orange-200: #e0b09b;
+    --orange-300: #d19477;
+    --orange-400: #c27b57;
+    --orange-500: #b3653b;
+    --orange-600: #ad5b2b;
+    --orange-700: #a3501c;
+    --orange-800: #94430d;
+    --orange-900: #803601;
+    --black: #181818;
+    --primary-color: var(--blue-500);
+    --secondary-color: var(--green-500);
+    --rs-sidenav-default-text: var(--green-300);
+    --rs-sidenav-default-selected-text: var(--green-800);
+    --rs-sidenav-default-hover-text: var(--green-500);
 }
 
 body {
@@ -23,8 +47,20 @@ body {
 
 .header {
     position: absolute;
-    right: 30px;
-    top: 20px;
+    right: 2vh;
+    top: 2vh;
     cursor: pointer;
     z-index: 1;
+}
+
+.rs-sidebar {
+    position: fixed;
+}
+
+.rs-stack {
+    position: fixed;
+}
+
+.rs-sidenavitem {
+    color: var(--green-300);
 }

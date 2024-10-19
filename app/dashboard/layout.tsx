@@ -12,8 +12,8 @@ import { CustomProvider } from 'rsuite';
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html lang="en">
-            <body>
-                <CustomProvider>{children}</CustomProvider>
+            <body className="text-[var(--black)]">
+                {children}
             </body>
         </html>
     );

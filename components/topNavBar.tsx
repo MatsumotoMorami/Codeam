@@ -13,13 +13,13 @@ export default function TopNavBar({ active, setActive, ...props }) {
             <IconButton
                 icon={
                     <Badge content={1}>
-                        <NoticeIcon style={{ fontSize: 25 }} />
+                        <NoticeIcon style={{ fontSize: 15 }} />
                     </Badge>
                 }
                 appearance="subtle"
             />
             <Avatar
-                sizes="m"
+                size="sm"
                 bordered
                 circle
                 style={{ marginLeft: 8 }}

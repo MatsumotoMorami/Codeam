@@ -51,10 +51,9 @@ export function HistoryTimeline(props) {
 
 
 
-export default function Frame({ children }) {
+export default function Frame({ children, expand, setExpand }) {
     const [activeKey, setActiveKey] = useState('1');
     const [active, setActive] = useState('home');
-    const [expand, setExpand] = useState(true);
     const [windowHeight, setWindowHeight] = useState(0);
     const [navBodyStyle, setNavBodyStyle] = useState({ height: 0, overflow: 'auto' });
 
