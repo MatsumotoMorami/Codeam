@@ -1,11 +1,6 @@
-import { Sidenav, Nav, Container, Sidebar, DOMHelper } from 'rsuite';
+import { Sidenav, Nav, DOMHelper } from 'rsuite';
 import DashboardIcon from '@rsuite/icons/legacy/Dashboard';
-import GroupIcon from '@rsuite/icons/legacy/Group';
-import MagicIcon from '@rsuite/icons/legacy/Magic';
-import GearCircleIcon from '@rsuite/icons/legacy/GearCircle';
 import NavToggle from './NavToggle';
-import { useEffect, useState } from 'react';
-import { Icon } from './icon';
 import { TextImage } from '@rsuite/icons';
 import PageIcon from '@rsuite/icons/Page';
 import MessageIcon from '@rsuite/icons/Message';
