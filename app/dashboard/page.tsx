@@ -7,7 +7,7 @@ import { useState } from "react";
 
 
 export default function App() {
-    const [expand, setExpand] = useState(true);
+    const [expand, setExpand] = useState(false);
     return (
         <>
             <Frame expand={expand} setExpand={setExpand}>
