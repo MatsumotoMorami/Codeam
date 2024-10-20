@@ -86,13 +86,72 @@ export default function DashboardComponentSet({ expand }) {
             }
         },
         {
-            id: 1,
+            id: 2,
             title: "滨寿司好吃还是Kura寿司好吃?",
             recentComment: {
                 date: "2024.10.10 12:34:56",
                 user: "AsakuraSayori",
                 content: "我觉得东盛更好吃。我觉得东盛更好吃。我觉得东盛更好吃。我觉得东盛更好吃。"
             }
+        }
+    ]
+    const teamTodo = [
+        {
+            id: 1,
+            title: "中午一起去吃Makihouse",
+            team: "MoramiStudio",
+            state: "finished"
+        },
+        {
+            id: 2,
+            title: "晚上一起去吃东盛",
+            team: "Pujimimu",
+            state: "unfinished",
+        },
+        {
+            id: 3,
+            title: "这是一个标题这是一个标题这是一个标题这是一个标题这是一个标题这是一个标题这是一个标题",
+            team: "woxihuandamaimai",
+            state: "unfinished"
+        },
+        {
+            id: 4,
+            title: "这是一个标题这是一个标题这是一个标题这是一个标题这是一个标题这是一个标题这是一个标题",
+            team: "qwertyuiopqwertyuiop",
+            state: "finished"
+        },
+        {
+            id: 5,
+            title: "这是一个标题这是一个标题这是一个标题这是一个标题这是一个标题这是一个标题这是一个标题",
+            team: "qwertyuiopqwertyuiop",
+            state: "unfinished"
+        }
+    ]
+    const individualTodo = [
+        {
+            id: 1,
+            title: "中午去吃Makihouse",
+            state: "finished"
+        },
+        {
+            id: 2,
+            title: "晚上去吃东盛",
+            state: "unfinished",
+        },
+        {
+            id: 3,
+            title: "这是一个标题这是一个标题这是一个标题这是一个标题这是一个标题这是一个标题这是一个标题",
+            state: "finished"
+        },
+        {
+            id: 4,
+            title: "这是一个标题这是一个标题这是一个标题这是一个标题这是一个标题这是一个标题这是一个标题",
+            state: "unfinished"
+        },
+        {
+            id: 5,
+            title: "这是一个标题这是一个标题这是一个标题这是一个标题这是一个标题这是一个标题这是一个标题",
+            state: "finished"
         }
     ]
     return (
@@ -143,8 +202,16 @@ export default function DashboardComponentSet({ expand }) {
                             </motion.div>
                         </motion.div>
                     </motion.div>
-                    <motion.div className="h-[32.5vh] rounded-3xl bg-[var(--primary-color)]">
+                    <motion.div className="py-[3%] px-[4%] h-[32.5vh] rounded-3xl bg-[var(--primary-color)]">
+                        <motion.div className="text-2xl pb-[3%] font-bold">Todo</motion.div>
+                        <motion.div className="grid grid-cols-2">
+                            <motion.div>
 
+                            </motion.div>
+                            <motion.div>
+
+                            </motion.div>
+                        </motion.div>
                     </motion.div>
                 </motion.div>
             </motion.div>
