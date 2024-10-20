@@ -1,8 +1,9 @@
-import { Container, Divider } from "rsuite";
+import { Checkbox, CheckboxGroup, Container, Divider, List } from "rsuite";
 import { Panel } from "rsuite";
 import Timeline from "rsuite/Timeline";
 import TimelineItem from "rsuite/TimelineItem";
 import { motion } from "framer-motion"
+import { useState } from "react";
 
 function getLengthWithChineseDoubled(str) {
     let length = 0;
@@ -95,7 +96,7 @@ export default function DashboardComponentSet({ expand }) {
             }
         }
     ]
-    const teamTodo = [
+    let [teamTodo, setTeamTodo] = useState([
         {
             id: 1,
             title: "中午一起去吃Makihouse",
@@ -126,8 +127,8 @@ export default function DashboardComponentSet({ expand }) {
             team: "qwertyuiopqwertyuiop",
             state: "unfinished"
         }
-    ]
-    const individualTodo = [
+    ])
+    let [individualTodo, setIndividualTodo] = useState([
         {
             id: 1,
             title: "中午去吃Makihouse",
@@ -153,7 +154,7 @@ export default function DashboardComponentSet({ expand }) {
             title: "这是一个标题这是一个标题这是一个标题这是一个标题这是一个标题这是一个标题这是一个标题",
             state: "finished"
         }
-    ]
+    ])
     return (
         <motion.div animate={{
             paddingLeft: expand ? '300px' : '100px',
@@ -180,7 +181,7 @@ export default function DashboardComponentSet({ expand }) {
                         <motion.div className="text-2xl pb-[3%] font-bold">
                             Discussion
                         </motion.div>
-                        <motion.div>
+                        <List hover>
                             <motion.div className="leading-relaxed">
                                 <motion.div className="font-bold">{discussionData[0].title}</motion.div>
                                 <motion.pre>{discussionData[0].recentComment.user + ': ' +
@@ -200,17 +201,25 @@ export default function DashboardComponentSet({ expand }) {
                                     )}</motion.pre>
                                 <motion.pre className="text-xs">{discussionData[1].recentComment.date}</motion.pre>
                             </motion.div>
-                        </motion.div>
+                        </List>
                     </motion.div>
                     <motion.div className="py-[3%] px-[4%] h-[32.5vh] rounded-3xl bg-[var(--primary-color)]">
                         <motion.div className="text-2xl pb-[3%] font-bold">Todo</motion.div>
                         <motion.div className="grid grid-cols-2">
-                            <motion.div>
+                            <CheckboxGroup value={teamTodo.map(item => item.state == "finished" && item.id)} onChange={value => {
+                                for (let i = 1; i <= 5; i++) {
+                                    if (value.includes(i)) setTeamTodo((val) => (val[i].state = "finished", val))
+                                    else setTeamTodo((val) => (val[i].state = "unfinished", val))
+                                }
+                            }}>
+                                {teamTodo.map(item => (
+                                    <Checkbox value={item.id} key={item.id} className="rounded-full">
+                                        <motion.pre>{item.title}</motion.pre>
+                                        <motion.div>From {item.team}</motion.div>
+                                    </Checkbox>
+                                ))}
+                            </CheckboxGroup>
 
-                            </motion.div>
-                            <motion.div>
-
-                            </motion.div>
                         </motion.div>
                     </motion.div>
                 </motion.div>
