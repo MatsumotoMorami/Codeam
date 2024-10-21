@@ -1,50 +1,78 @@
 "use client";
 
 import Timeline from 'rsuite/Timeline';
-import classNames from 'classnames';
 import TimelineItem from 'rsuite/TimelineItem';
-import SideNavBar, { expand } from './sideNavBar';
+import SideNavBar from './sideNavBar-Dashboard';
 import TopNavBar from './topNavBar';
 import { useEffect, useState } from 'react';
-import { Container, Header, Content, Footer, Breadcrumb, Sidebar } from 'rsuite';
-import { getHeight } from 'rsuite/esm/DOMHelper';
-import { Outlet } from 'react-router-dom';
+import { Container, Header, Content, Footer, Sidebar } from 'rsuite';
+import { motion } from "framer-motion";
 
 export function HistoryTimeline(props) {
+    interface HistoryDataType {
+        id: number,
+        operator: string,
+        location: string,
+        action: string,
+        date: string,
+        team: string,
+        object?: string
+    }
     const HistoryData: HistoryDataType[] = [
         {
-            time: "2024.10.1 12:34:56",
+            id: 1,
             operator: "Morami",
-            title: "睡觉",
-            content: "开睡！"
+            location: "Wiki页面",
+            action: "编辑",
+            object: "明日方舟页面",
+            team: "MoramiStudio",
+            date: "2024.10.10 12:34:56"
         },
         {
-            time: "2024.10.1 12:34:56",
-            operator: "Morami",
-            title: "睡觉",
-            content: "开睡！"
+            id: 2,
+            operator: "Mitori",
+            location: "文件管理页面",
+            action: "上传",
+            object: "page.tsx",
+            team: "Pujimimu",
+            date: "2024.10.10 12:34:56"
         },
         {
-            time: "2024.10.1 12:34:56",
+            id: 3,
             operator: "Morami",
-            title: "睡觉",
-            content: "开睡！"
+            location: "房间里",
+            action: "睡觉",
+            team: "Kungao",
+            date: "2024.10.10 12:34:56"
         },
         {
-            time: "2024.10.1 12:34:56",
+            id: 4,
             operator: "Morami",
-            title: "睡觉",
-            content: "开睡！"
+            location: "房间里",
+            action: "起床",
+            team: "Kungao",
+            date: "2024.10.10 12:34:56"
+        },
+        {
+            id: 5,
+            operator: "Morami",
+            location: "房间里",
+            action: "睡觉",
+            team: "Kungao",
+            date: "2024.10.10 12:34:56"
         }
     ]
-    console.log(props);
     return (
-        <Timeline endless {...props}>
-            <TimelineItem>16:27:41 Your order starts processing</TimelineItem>
-            <TimelineItem>16:28:43 Your order to be ready for delivery</TimelineItem>
-            <TimelineItem>16:28:45 Your parcel has been out of the library</TimelineItem>
-            <TimelineItem>02:34:41 Send to Shanghai Hongkou Company</TimelineItem>
-            <TimelineItem>15:05:29 Sending you a piece</TimelineItem>
+        <Timeline>
+            {HistoryData.map(item => (
+                <TimelineItem key={item.id}>
+                    <motion.div className='relative'>
+                        {item.operator + ' 在 ' + item.location + ' ' + item.action + (item.object ? ('了' + item.object) : '')}
+                        <span className='text-gray-400 absolute right-[5%] '>{"From " + item.team}</span>
+                    </motion.div>
+                    <motion.div>{item.date}</motion.div>
+                </TimelineItem>
+            ))}
         </Timeline>
     );
 }
