@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import { Container, Header, Content, Footer, Sidebar } from 'rsuite';
 import { motion } from "framer-motion";
 
-export function HistoryTimeline(props) {
+export function HistoryTimeline({ expand }) {
     interface HistoryDataType {
         id: number,
         operator: string,
@@ -68,7 +68,21 @@ export function HistoryTimeline(props) {
                 <TimelineItem key={item.id}>
                     <motion.div className='relative'>
                         {item.operator + ' 在 ' + item.location + ' ' + item.action + (item.object ? ('了' + item.object) : '')}
-                        <span className='text-gray-400 absolute right-[5%] '>{"From " + item.team}</span>
+                        <motion.span className='text-gray-400 absolute right-[5%]'
+                            initial="hidden"
+                            variants={{
+                                hidden: {
+                                    opacity: 0
+                                },
+                                visible: {
+                                    opacity: 1,
+                                    transition: { duration: 0.2 }
+                                }
+                            }}
+                            animate={!expand ? "visible" : "hidden"}
+                        >
+                            {"From " + item.team}
+                        </motion.span>
                     </motion.div>
                     <motion.div>{item.date}</motion.div>
                 </TimelineItem>

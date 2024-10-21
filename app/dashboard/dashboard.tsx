@@ -124,7 +124,8 @@ export default function DashboardComponentSet({ expand }) {
                 teamTodo={teamTodo}
                 setTeamTodo={setTeamTodo}
                 individualTodo={individualTodo}
-                setIndividualTodo={setIndividualTodo}>
+                setIndividualTodo={setIndividualTodo}
+                expand={expand}>
             </DashboardGridLayout>
         </motion.div>
     )
@@ -222,11 +223,11 @@ function DashboardTitle() {
     )
 }
 
-function DashboardGridLayout({ discussionData, teamTodo, setTeamTodo, individualTodo, setIndividualTodo }) {
+function DashboardGridLayout({ discussionData, teamTodo, setTeamTodo, individualTodo, setIndividualTodo, expand }) {
     return (
         <Grid className="min-w-full max-w-full">
             <Row className="m-0">
-                <LeftCol></LeftCol>
+                <LeftCol expand={expand}></LeftCol>
                 <RightCol
                     discussionData={discussionData}
                     teamTodo={teamTodo}
@@ -239,13 +240,13 @@ function DashboardGridLayout({ discussionData, teamTodo, setTeamTodo, individual
     )
 }
 
-function LeftCol() {
+function LeftCol({ expand }) {
     return (
         <Col xs={24} sm={24} md={12} className="m-0 p-0">
             <NoticeBoard></NoticeBoard>
             <Row className={"px-[6%] py-[4%] mt-[5vh] mr-[3vw] h-[60vh] rounded-3xl bg-[var(--primary-color)]"}>
                 <motion.div className="text-3xl pb-[8%] font-bold">History</motion.div>
-                <HistoryTimeline></HistoryTimeline>
+                <HistoryTimeline expand={expand}></HistoryTimeline>
             </Row>
         </Col>
     )

@@ -79,3 +79,7 @@ body {
 .rs-popover-title {
     text-align: center;
 }
+
+#notificationPopover {
+    width: 20vw;
+}
