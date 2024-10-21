@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef } from 'react';
 import { Avatar, Badge, Dropdown, IconButton, Navbar, Popover, Stack, useMediaQuery, Whisper, WhisperInstance } from 'rsuite';
 import NoticeIcon from '@rsuite/icons/Notice';
+import Link from 'next/link';
+import DropdownItem from 'rsuite/esm/Dropdown/DropdownItem';
 
 const avatarSpeaker = (
     <Popover title={
@@ -10,6 +12,7 @@ const avatarSpeaker = (
         </div>
     }>
         <Dropdown.Menu>
+            <Dropdown.Item divider></Dropdown.Item>
             <Dropdown.Item>Profile</Dropdown.Item>
             <Dropdown.Item>Group</Dropdown.Item>
             <Dropdown.Item>Settings</Dropdown.Item>
@@ -23,19 +26,92 @@ const avatarSpeaker = (
     </Popover>
 )
 
-const noticeSpeaker = (
-    <Popover>
+interface notice {
+    id: number,
+    time: {
+        num: number;
+        unit: string;
+    },
+    from: string,
+    content: string,
+    href: string
+}
 
+const noticeList: notice[] = [
+    {
+        id: 1,
+        time: {
+            num: 1,
+            unit: "day"
+        },
+        from: "MoramiStudio",
+        content: "该吃饭了该吃饭了该吃饭了该吃饭了该吃饭了该吃饭了该吃饭了该吃饭了",
+        href: ""
+    },
+    {
+        id: 2,
+        time: {
+            num: 3,
+            unit: "day"
+        },
+        from: "MoramiStudio",
+        content: "该打乌蒙了该打乌蒙了",
+        href: ""
+    },
+    {
+        id: 3,
+        time: {
+            num: 3,
+            unit: "day"
+        },
+        from: "MoramiStudio",
+        content: "睡觉!睡觉!睡觉!睡觉!睡觉!睡觉!睡觉!睡觉!睡觉!睡觉!睡觉!睡觉!睡觉!睡觉!",
+        href: ""
+    },
+    {
+        id: 4,
+        time: {
+            num: 3,
+            unit: "day"
+        },
+        from: "MoramiStudio",
+        content: "该吃饭了该吃饭了该吃饭了",
+        href: ""
+    },
+]
+
+const noticeSpeaker = (
+    <Popover title={
+        <div>
+            Notice
+        </div>
+    }>
+        <Dropdown.Menu className='w-[20vw]'>
+            {noticeList.map(item => (
+                <div className='w-full'>
+                    <Dropdown.Item as={Link} href={item.href} className=' w-[100%]'>
+                        <div>{item.time.num + ' '
+                            + (item.time.num > 1 ? item.time.unit + 's' : item.time.unit)
+                            + " ago"}</div>
+                        <div>{item.from}</div>
+                        <div className='text-ellipsis whitespace-nowrap overflow-hidden w-[6vw]'>{item.content}</div>
+                    </Dropdown.Item>
+                    <Dropdown.Item divider></Dropdown.Item>
+                </div>
+            ))}
+            <DropdownItem>
+                More Notifications...
+            </DropdownItem>
+        </Dropdown.Menu>
     </Popover>
 )
 
 
-export default function TopNavBar({ active, setActive, ...props }) {
+export default function TopNavBar({ active, setActive }) {
     const [isMobile] = useMediaQuery('(max-width: 700px)');
-    const trigger = useRef<WhisperInstance>(null);
     return (
         <Stack direction={isMobile ? 'column' : 'row'} spacing={20} className='header pt-[1vh] pr-[2vw]'>
-            <Whisper speaker={noticeSpeaker}>
+            <Whisper speaker={noticeSpeaker} placement='bottomEnd' trigger="click">
                 <IconButton
                     icon={
                         <Badge content={1}>
