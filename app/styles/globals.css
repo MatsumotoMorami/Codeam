@@ -64,3 +64,10 @@ body {
 .rs-sidenavitem {
     color: var(--green-300);
 }
+
+.rs-grid-container {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}

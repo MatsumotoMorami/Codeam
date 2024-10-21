@@ -163,12 +163,12 @@ export default function Test({ expand }) {
         }} transition={{ duration: 0.3 }}>
             <Grid fluid>
                 <Row>
-                    <Col xs={24} md={12} lg={12}>
-                        <div style={{ maxWidth: '100%', minWidth: '80%', maxHeight: '80vh', minHeight: '80vh', backgroundColor: 'lightblue', padding: '10px', margin: "20px", overflow: 'auto' }}>
-                            区域一内容 (最大宽度 300px, 最大高度 200px)33333333333333333333333333333333333333333333333333
+                    <Col sm={24} md={12}>
+                        <div style={{ maxWidth: '100%', minWidth: '80%', maxHeight: '80vh', minHeight: '80vh', backgroundColor: 'lightgreen', padding: '10px', margin: "20px", overflow: 'auto' }}>
+                            区域一内容 (最大宽度 300px, 最大高度 200px)33333333333333333333333333333333333333333333333333713624786897865789865896890689769969767867689768786768795876657985889658966786978
                         </div>
                     </Col>
-                    <Col xs={24} md={12} lg={12}>
+                    <Col sm={24} md={12}>
                         <Row>
                             <div style={{ maxWidth: '100%', minWidth: '80%', maxHeight: '40vh', minHeight: '40vh', backgroundColor: 'lightgreen', padding: '10px', margin: "20px", overflow: 'auto' }}>
                                 区域二内容 (最大宽度 400px, 最大高度 250px)222222222222222222222222222222222222
