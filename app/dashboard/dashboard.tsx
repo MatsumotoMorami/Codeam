@@ -218,7 +218,15 @@ const SmoothMarquee: React.FC<SmoothMarqueeProps> = React.memo(({ children, spee
 function DashboardTitle() {
     return (
         <motion.div className="pl-3 pb-8">
-            <div className="inline-block pr-[10%] text-5xl font-bold">Dashboard</div>
+            <span className="inline-block text-5xl font-bold">
+                <pre>{"Dashboard"}</pre>
+                <div className="flex flex-row">
+                    <div className="h-3 w-[27%] bg-[var(--primary-orange)]"></div>
+                    <div className="h-3 w-[27%] bg-[var(--primary-yellow)]"></div>
+                    <div className="h-3 w-[27%] bg-[var(--primary-green)]"></div>
+                </div>
+            </span>
+            <pre className="inline-block pr-[10%] text-5xl font-bold align-top">{"|工作台"}</pre>
         </motion.div>
     )
 }
@@ -244,8 +252,10 @@ function LeftCol({ expand }) {
     return (
         <Col xs={24} sm={24} md={12} className="m-0 p-0">
             <NoticeBoard></NoticeBoard>
-            <Row className={"px-[6%] py-[4%] mt-[5vh] mr-[3vw] h-[60vh] rounded-3xl bg-[var(--primary-color)]"}>
-                <motion.div className="text-3xl pb-[8%] font-bold">History</motion.div>
+            <Row className={"mt-[5vh] mr-[3vw] h-[60vh] bg-white hover:shadow-xl duration-300"}>
+                <motion.div className="text-3xl mb-[8%] font-bold header-bg h-[15%] w-full grid items-center">
+                    <div className="ml-[5%]">History</div>
+                </motion.div>
                 <HistoryTimeline expand={expand}></HistoryTimeline>
             </Row>
         </Col>
@@ -268,11 +278,11 @@ function RightCol({ discussionData, teamTodo, setTeamTodo, individualTodo, setIn
 function DiscussionRow({ discussionData }) {
     return (
         <Row className="overflow-auto">
-            <div className="py-[3%] px-[4%] h-[32.5vh] mb-[5vh] rounded-3xl bg-[var(--primary-color)]">
-                <motion.div className="text-2xl pb-[3%] font-bold">
-                    Discussion
+            <a className="block h-[32.5vh] mb-[5vh] bg-white hover:shadow-xl duration-300" href="/dashboard/discussion">
+                <motion.div className="text-2xl font-bold header-bg grid items-center h-[20%]">
+                    <div className="ml-[5%]">Discussion</div>
                 </motion.div>
-                <List hover>
+                <List className="px-[5%] pt-5">
                     <motion.div className="leading-relaxed">
                         <motion.div className="font-bold">{discussionData[0].title}</motion.div>
                         <motion.pre className="text-ellipsis whitespace-nowrap overflow-hidden w-[90%]">{discussionData[0].recentComment.user + ': ' + discussionData[0].recentComment.content}</motion.pre>
@@ -285,7 +295,7 @@ function DiscussionRow({ discussionData }) {
                         <motion.pre className="text-xs">{discussionData[1].recentComment.date}</motion.pre>
                     </motion.div>
                 </List>
-            </div>
+            </a>
         </Row>
     )
 }

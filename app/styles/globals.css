@@ -39,6 +39,10 @@
     --rs-sidenav-default-text: var(--green-300);
     --rs-sidenav-default-selected-text: var(--green-800);
     --rs-sidenav-default-hover-text: var(--green-500);
+    --bg-color: #F6EFE4;
+    --primary-green: #C8CD72;
+    --primary-yellow: #D3BE8B;
+    --primary-orange: #CD854C;
 }
 
 body {
@@ -98,4 +102,15 @@ body {
 
 .rs-picker-toggle-indicator {
     display: none;
+}
+
+.rs-picker-toggle-value {
+    width: 8vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.header-bg {
+    background: rgb(200, 205, 114);
+    background: linear-gradient(90deg, rgba(200, 205, 114, 1) 0%, rgba(24, 24, 24, 1) 100%);
 }

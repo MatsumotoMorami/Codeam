@@ -63,7 +63,7 @@ export function HistoryTimeline({ expand }) {
         }
     ]
     return (
-        <Timeline>
+        <Timeline className='ml-[5%]'>
             {HistoryData.map(item => (
                 <TimelineItem key={item.id}>
                     <motion.div className='relative'>
@@ -113,12 +113,6 @@ export default function Frame({ children, expand, setExpand }) {
 
     return (
         <Container>
-            <Sidebar
-                style={{ display: 'flex', flexDirection: 'column' }}
-                width={expand ? 260 : 56}
-                collapsible>
-                <SideNavBar nbs={navBodyStyle} expanded={expand} setExpand={setExpand} />
-            </Sidebar>
             <Container>
                 <Header className='header'>
                     <TopNavBar active={active} setActive={setActive} />
@@ -127,6 +121,12 @@ export default function Frame({ children, expand, setExpand }) {
                     {children}
                 </Content>
             </Container>
+            <Sidebar
+                style={{ display: 'flex', flexDirection: 'column' }}
+                width={expand ? 260 : 56}
+                collapsible>
+                <SideNavBar nbs={navBodyStyle} expanded={expand} setExpand={setExpand} />
+            </Sidebar>
             <Footer></Footer>
         </Container>
     );

@@ -5,6 +5,7 @@ import DropdownItem from 'rsuite/esm/Dropdown/DropdownItem';
 import DarkModeToggle from './DarkModeToggle';
 import { Children, useState } from 'react';
 import { div, label } from 'framer-motion/client';
+import MessageIcon from '@rsuite/icons/Message';
 import { setgroups } from 'process';
 
 const avatarSpeaker = (
@@ -107,6 +108,31 @@ const noticeSpeaker = (
     </Popover>
 )
 
+const messageSpeaker = (
+    <Popover id="notificationPopover" title={
+        <div>
+            Notification
+        </div>
+    }>
+        <Dropdown.Menu className='w-full'>
+            {noticeList.map(item => (
+                <div className='w-full' key={item.id}>
+                    <Dropdown.Item as={Link} href={item.href}>
+                        <div className='text-gray-400 text-xs leading-relaxed'>{item.time.num + ' '
+                            + (item.time.num > 1 ? item.time.unit + 's' : item.time.unit)
+                            + " ago"}</div>
+                        <div className='text-xs leading-relaxed'>From <strong>{item.from}</strong></div>
+                        <div className='text-ellipsis whitespace-nowrap overflow-hidden w-[16vw] leading-relaxed'>{item.content}</div>
+                    </Dropdown.Item>
+                    <Dropdown.Item divider key={"divider" + item.id}></Dropdown.Item>
+                </div>
+            ))}
+            <DropdownItem key="morenitifications">
+                <div className='text-gray-400'>More Notifications...</div>
+            </DropdownItem>
+        </Dropdown.Menu>
+    </Popover>
+)
 
 export default function TopNavBar({ active, setActive }) {
     const [group, setGroup] = useState("");
@@ -127,10 +153,19 @@ export default function TopNavBar({ active, setActive }) {
                 data={groupData.map(item => ({ label: item, value: item }))} label="Group"
                 className='w-[15vw]'
             ></SelectPicker>
+            <Whisper speaker={messageSpeaker} placement='bottomEnd' trigger="click">
+                <IconButton
+                    icon={
+                        <Badge content={10}>
+                            <MessageIcon style={{ fontSize: 15 }}></MessageIcon>
+                        </Badge>
+                    }
+                />
+            </Whisper>
             <Whisper speaker={noticeSpeaker} placement='bottomEnd' trigger="click">
                 <IconButton
                     icon={
-                        <Badge content={1}>
+                        <Badge content={20}>
                             <NoticeIcon style={{ fontSize: 15 }} />
                         </Badge>
                     }

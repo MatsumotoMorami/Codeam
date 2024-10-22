@@ -1,5 +1,7 @@
+import type { Metadata } from "next";
 import "@styles/globals.css"
 import { ReactNode } from "react";
+import { CustomProvider } from 'rsuite';
 
 
 // export const metadata: Metadata = {
@@ -10,7 +12,7 @@ import { ReactNode } from "react";
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html lang="en">
-            <body className="text-[var(--black)]">
+            <body className="text-[var(--black)] w-[100vw] h-[100vh]">
                 {children}
             </body>
         </html>
