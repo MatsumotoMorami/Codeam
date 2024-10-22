@@ -73,7 +73,7 @@ body {
 }
 
 .rs-popover {
-    width: 10vw;
+    width: 8vw;
 }
 
 .rs-popover-title {
@@ -82,4 +82,20 @@ body {
 
 #notificationPopover {
     width: 20vw;
+}
+
+#darkModeToggle {
+    width: 100%;
+}
+
+.rs-picker-toggle {
+    height: 5vh;
+}
+
+.rs-picker-caret-icon {
+    opacity: 0;
+}
+
+.rs-picker-toggle-indicator {
+    display: none;
 }

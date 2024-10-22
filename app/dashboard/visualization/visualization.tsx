@@ -7,7 +7,9 @@ export default function VisualizationComponentSet(expand) {
             paddingRight: '3vw',
             paddingTop: '10vh'
         }} transition={{ duration: 0.2 }}>
-
+            <motion.div>
+                Visualization
+            </motion.div>
         </motion.div>
     )
 }
