@@ -34,7 +34,7 @@ export default function SideNavBar({ expanded, setExpand, nbs }) {
         <Sidenav defaultOpenKeys={['2']} expanded={expanded}>
             <Sidenav.Body style={nbs}>
                 <Nav activeKey={activeKey}>
-                    <motion.img src={logo} className='w-[50%] inset-0 mx-auto py-3 max-h-[56px]' animate={controls}></motion.img>
+                    <motion.img src={logo} className='w-[50%] inset-0 mx-auto py-3 max-h-[56px] object-cover' animate={controls}></motion.img>
                     <Nav.Item eventKey="1" icon={<DashboardIcon />} href='/dashboard' as={Link}>
                         Dashboard
                     </Nav.Item>
