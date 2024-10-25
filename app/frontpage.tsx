@@ -10,14 +10,14 @@ export default function FrontPage() {
             <img src="/texture/frontpage/bottom.png" className="fixed bottom-0 w-[100vw]"></img>
             <div className="fixed top-0 w-[100vw] h-[60px] bg-[var(--black)]">
                 <Stack className="h-[60px] w-[calc(100vw-2.5rem)] flex justify-end">
-                    <Stack.Item className="w-[10vw] h-[80%] bg-[var(--primary-green)] mx-10">
-                        <div>
-
+                    <Stack.Item className="w-[10vw] h-[80%] bg-[var(--primary-green)] mx-10 grid items-center">
+                        <div className="font-bold text-center">
+                            About
                         </div>
                     </Stack.Item>
-                    <Stack.Item className=" w-[10vw] h-[80%] bg-[var(--primary-green)]">
-                        <div>
-
+                    <Stack.Item className=" w-[10vw] h-[80%] bg-[var(--primary-green)] grid items-center">
+                        <div className="font-bold text-center ">
+                            Sign in
                         </div>
                     </Stack.Item>
                 </Stack>
