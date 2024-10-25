@@ -67,6 +67,7 @@ body {
 
 .rs-sidenavitem {
     color: var(--green-300);
+    background: transparent;
 }
 
 .rs-grid-container {

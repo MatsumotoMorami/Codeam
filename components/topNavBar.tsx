@@ -160,6 +160,7 @@ export default function TopNavBar({ active, setActive }) {
                             <MessageIcon style={{ fontSize: 15 }}></MessageIcon>
                         </Badge>
                     }
+                    appearance="subtle"
                 />
             </Whisper>
             <Whisper speaker={noticeSpeaker} placement='bottomEnd' trigger="click">

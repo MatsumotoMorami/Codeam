@@ -1,9 +1,7 @@
-import FrontpageComponentSet from "@/components/frontpage-components";
-import Page from "@/components/whole-page-export";
-
+import FrontPage from "./frontpage";
 
 export default function App() {
     return (
-        <div></div>
+        <FrontPage></FrontPage>
     )
 }

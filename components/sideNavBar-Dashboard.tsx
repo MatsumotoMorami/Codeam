@@ -34,12 +34,15 @@ export default function SideNavBar({ expanded, setExpand, nbs }) {
         <Sidenav defaultOpenKeys={['2']} expanded={expanded}>
             <Sidenav.Body style={nbs}>
                 <Nav activeKey={activeKey}>
-                    <motion.img src={logo} className='w-[50%] inset-0 mx-auto py-3 max-h-[56px] object-cover' animate={controls}></motion.img>
+                    <motion.div className='bg-[var(--primary-orange)] w-[100%] grid items-center h-[56px] object-cover' animate={controls}>
+                        <img src={logo} className='ml-[20%] w-[60%]'></img>
+                    </motion.div>
+                    <div className='h-[10px] bg-[var(--primary-green)]'></div>
                     <Nav.Item eventKey="1" icon={<DashboardIcon />} href='/dashboard' as={Link}>
                         Dashboard
                     </Nav.Item>
-                    <Nav.Menu onClick={() => !expanded ? setExpand(!expanded) : {}} eventKey="2" title='Knowledge System' icon={<TextImage />}>
-                        <Nav.Item eventKey="2-1" href='/dashboard/visualization' as={Link}>Visualization</Nav.Item>
+                    <Nav.Menu onClick={() => !expanded ? setExpand(!expanded) : {}} eventKey="2" title='Knowledge System' icon={<TextImage />} style={{ backgroundColor: "transparent" }}>
+                        <Nav.Item eventKey="2-1" href='/dashboard/visualization' as={Link} style={{ backgroundColor: "transparent" }}>Visualization</Nav.Item>
                         <Nav.Item eventKey="2-2" href='/dashboard/wiki' as={Link}>Wiki</Nav.Item>
                     </Nav.Menu>
                     <Nav.Item eventKey="3" icon={<PageIcon />} href='/dashboard/files' as={Link}>Files</Nav.Item>
@@ -49,14 +52,12 @@ export default function SideNavBar({ expanded, setExpand, nbs }) {
             <NavToggle expand={expanded} onChange={() => {
 
                 controls.start({
-                    scale: 0,
                     transition: { duration: 0.1 },
                 }).then(() => {
                     setLogo(prevLogo => (prevLogo === '/logo.png' ? '/texture/frontpage/header.png' : '/logo.png'));
                     setExpand(!expanded);
                 }).then(() => {
                     controls.start({
-                        scale: 1,
                         transition: { duration: 0.3 },
                     })
                 })
