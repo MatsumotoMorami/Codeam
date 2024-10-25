@@ -115,3 +115,10 @@ body {
     background: rgb(200, 205, 114);
     background: linear-gradient(90deg, rgba(200, 205, 114, 1) 0%, rgba(24, 24, 24, 1) 100%);
 }
+
+#frontpageinput {
+    color: gray;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    letter-spacing: 0.05rem;
+}
